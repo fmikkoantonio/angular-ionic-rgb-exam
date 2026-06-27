@@ -1,0 +1,7 @@
+{
+  "name": "angular-rgb-exam",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
