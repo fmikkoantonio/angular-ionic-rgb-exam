@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar [style.--background]="'#FFBE05'">
+    <ion-buttons slot="start">
+      <ion-button (click)="closeModal()">
+        <ion-icon
+          slot="icon-only"
+          name="arrow-back"
+          class="text-white"
+        ></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="text-white">Others</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="bg-gray-200">
+  <div class="flex flex-col min-h-full bg-gray-200 px-6 py-8">
+    <p class="text-center mb-5">You might also like</p>
+    <div class="w-full max-w-md flex flex-col items-center">
+      <!-- Carousel -->
+      <div class="relative overflow-hidden">
+        <div
+          class="flex transition-transform duration-500 ease-out"
+          [style.transform]="'translateX(-' + currentIndex * 100 + '%)'"
+        >
+          <div
+            *ngFor="let item of carouselItems"
+            class="w-full shrink-0 flex justify-center"
+          >
+            <div class="w-80 rounded bg-white shadow-lg p-6">
+              <img [src]="item.image" class="h-52 w-full object-contain" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Company Name -->
+      <h2 class="mt-8 text-center text-2xl font-bold text-gray-800">
+        {{ carouselItems[currentIndex].name }}
+      </h2>
+
+      <!-- CTA -->
+      <div class="w-full flex justify-center p-4 items-center text-center">
+        <a
+          [href]="carouselItems[currentIndex].link"
+          target="_blank"
+          class="px-4 py-2 rounded text-white !text-white w-full"
+          [style.background]="'#FFBE05'"
+        >
+          Visit {{ carouselItems[currentIndex].name }} Website
+        </a>
+      </div>
+    </div>
+  </div>
+</ion-content>

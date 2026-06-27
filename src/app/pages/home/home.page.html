@@ -1,0 +1,39 @@
+@if(isLoading){
+<app-loading [message]="loadingMessage"></app-loading>
+
+} @else{
+<ion-content>
+  @if(authService.user(); as user) {
+  <div class="p-8">
+    <div class="flex items-center gap-3">
+      <img
+        [src]="user.profilePicture"
+        alt="Profile"
+        class="w-12 h-12 rounded-full object-cover border-2 border-gray-200 cursor-pointer active:scale-95 transition"
+        (click)="showProfileActions()"
+      />
+
+      <div>
+        <p class="font-semibold text-gray-900">{{ user.userName }}</p>
+        <p class="text-sm text-gray-400">{{ user.userId }}</p>
+      </div>
+    </div>
+    <div class="grid grid-cols-2 mt-20 gap-y-14 px-5 justify-items-center">
+      @for (social of socials; track $index) {
+      <img
+        [src]="social.iconUrl"
+        class="w-20 h-20 rounded-xl"
+        (click)="openSocialModal(social)"
+      />
+      }
+      <div
+        class="w-20 h-20 rounded-xl bg-[#FFBE05] flex items-center justify-center"
+        (click)="openOtherSocialModal()"
+      >
+        <img src="assets/images/input.svg" class="w-10 h-10" />
+      </div>
+    </div>
+  </div>
+  }
+</ion-content>
+}
