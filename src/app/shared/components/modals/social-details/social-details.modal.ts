@@ -32,7 +32,7 @@ import { Social } from 'src/app/shared/models/social.model';
     FormsModule,
   ],
 })
-export class SocialDetailsModal implements OnInit {
+export class SocialDetailsModal {
   @Input() social!: Social;
 
   modalController = inject(ModalController);
@@ -40,8 +40,6 @@ export class SocialDetailsModal implements OnInit {
   constructor() {
     addIcons({ arrowBack });
   }
-
-  ngOnInit() {}
 
   closeModal() {
     this.modalController.dismiss();
