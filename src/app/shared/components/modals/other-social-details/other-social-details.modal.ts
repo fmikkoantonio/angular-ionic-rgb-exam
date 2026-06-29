@@ -93,19 +93,6 @@ export class OtherSocialDetailsModal implements OnInit, OnDestroy {
     this.currentIndex = (this.currentIndex + 1) % this.carouselItems.length;
   }
 
-  previous() {
-    this.currentIndex =
-      this.currentIndex === 0
-        ? this.carouselItems.length - 1
-        : this.currentIndex - 1;
-  }
-
-  goToSlide(index: number) {
-    this.currentIndex = index;
-    this.stopAutoplay();
-    this.startAutoplay();
-  }
-
   openLink(link: string) {
     window.open(link, '_blank');
   }
